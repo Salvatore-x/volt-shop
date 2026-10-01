@@ -20,8 +20,8 @@ Add these environment variables in Netlify with Functions/runtime access (or all
 - GOOGLE_CLIENT_SECRET: existing Google OAuth secret
 - APP_URL: exact new https://YOUR-SITE.netlify.app origin, without trailing slash
 - MAILGUN_API_KEY: saved domain sending key
-- MAILGUN_DOMAIN: sandboxc607523250ab4fb0987bb7f476f38bb4.mailgun.org
-- MAILGUN_FROM: VOLT <postmaster@sandboxc607523250ab4fb0987bb7f476f38bb4.mailgun.org>
+- MAILGUN_DOMAIN: your Mailgun sending domain
+- MAILGUN_FROM: your Mailgun sender address
 - MAILGUN_REGION: US
 
 Keep secrets out of Git. Reuse the existing Supabase database: do not rerun schema or seed scripts. Once Netlify assigns a domain, add https://YOUR-SITE.netlify.app/api/auth/callback to the existing Google OAuth client's authorized redirect URIs. Keep the old URI if you still use the Sites version. Redeploy after saving environment variables.
