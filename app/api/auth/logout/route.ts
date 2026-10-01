@@ -1,2 +1,4 @@
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 import {cookies} from 'next/headers';import {db,session,checkOrigin} from '@/lib/server';
 export async function POST(req:Request){try{checkOrigin(req);const s=await session();if(s)await db(`shop_sessions?id=eq.${s.id}`,'PATCH',{expires_at:new Date().toISOString()});(await cookies()).delete('volt_session');return Response.json({ok:true});}catch{return Response.json({error:'Could not sign out.'},{status:400});}}
